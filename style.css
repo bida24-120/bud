@@ -1,0 +1,240 @@
+/* homepage.css */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f8f8f8; /* Light grey background for a modern feel */
+    color: #333; /* Dark grey text for readability */
+}
+
+header {
+    background-color: #fff; /* White header for contrast */
+    color: #333;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: 1rem;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #28a745; /* Green for "revolution" and sustainability */
+}
+
+.logo p {
+    margin: 0;
+    font-style: italic;
+    color: #777;
+    font-size: 1.1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* Space between main and secondary nav */
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.main-nav a,
+.secondary-nav a {
+    color: #555;
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent; /* Add a transparent border for hover effect */
+}
+
+.main-nav a:hover,
+.secondary-nav a:hover {
+    background-color: #f0f0f0; /* Light grey hover */
+    color: #28a745; /* Green hover */
+    border-color: #ddd; /* Subtle border on hover */
+}
+
+.secondary-nav {
+    display: flex;
+    gap: 0.75rem;
+}
+
+main {
+    padding: 4rem 2rem;
+}
+
+.hero {
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.hero-image {
+    width: 45%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-right: 2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-text {
+    width: 55%;
+    text-align: left;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: #28a745; /* Green primary button */
+    color: #fff;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #1e7e34; /* Darker green on hover */
+}
+
+.read-more-button {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 0.9rem 1.9rem;
+}
+
+.read-more-button:hover {
+    background-color: #f0f0f0;
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.featured-categories {
+    text-align: center;
+    max-width: 960px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.featured-categories h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.category-item {
+    text-decoration: none;
+    color: #333;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
+
+.category-item h3 {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.call-to-action {
+    text-align: center;
+    background-color: #e6f7e9; /* Light green background for call to action */
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.call-to-action h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #28a745;
+}
+
+.call-to-action p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.donate-button {
+    background-color: #ffc107; /* Yellow/Gold for donate */
+}
+
+.donate-button:hover {
+    background-color: #e0a800;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
