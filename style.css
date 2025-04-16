@@ -1,12 +1,12 @@
-/* homepage.css - Beige Background */
+/* homepage.css - Beige Background (Slightly Stronger) */
 :root {
     --primary-color: #58815e; /* Forest Green */
     --secondary-color: #a3b18a; /* Sage Green */
     --accent-color: #fcca46; /* Soft Gold / Mustard */
-    --background-color: #f5f5dc; /* Beige */
+    --background-color: #f0e68c; /* Khaki (a more noticeable beige) */
     --text-color-primary: #3d405b; /* Dark Charcoal */
     --text-color-secondary: #606c38; /* Olive Green */
-    --light-background: #fffaf0; /* Floral White (a light beige) */
+    --light-background: #fff8dc; /* Cornsilk (a lighter, warmer beige) */
     --border-color: #d4c3a1; /* Light Tan */
 }
 
@@ -30,8 +30,6 @@ header {
     align-items: center;
     border-bottom: 1px solid var(--border-color);
 }
-
-/* ... (rest of the CSS remains the same as the previous beige version) ... */
 
 nav {
     display: flex;
