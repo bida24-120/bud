@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Re-wear Revolution Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Re-wear Revolution Store</h1>
+            <p>"Where treasure gets a second chance"</p>
+        </div>
+        <nav>
+            <div class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="readmore.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="secondary-nav">
+                <a href="donate.html">Donate</a>
+                <a href="feedback.html" class="active">Feedback</a>
+                <a href="reviews.html">Customer Reviews</a>
+                <a href="signin.html">Sign In</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container feedback-form-container">
+            <h2>Give Us Your Feedback</h2>
+            <p>Your feedback is valuable to us! Please take a moment to share your thoughts and suggestions to help us improve your experience.</p>
+            <form id="feedback-form" action="feedback.html" method="post">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-type">Type of Feedback:</label>
+                    <select id="feedback-type" name="feedback-type" required>
+                        <option value="" disabled selected>Select Feedback Type</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="compliment">Compliment</option>
+                        <option value="bug">Bug Report</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Overall Satisfaction:</label>
+                    <div class="rating-stars">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5" title="5 stars">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4" title="4 stars">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3" title="3 stars">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2" title="2 stars">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1" title="1 star">★</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Feedback:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="file-upload">Upload File (Optional):</label>
+                    <input type="file" id="file-upload" name="file-upload" accept="image/*, .pdf, .doc, .docx">
+                    <small>Supported formats: image, PDF, DOC, DOCX</small>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="subscribe" name="subscribe">
+                    <label for="subscribe">Subscribe to our newsletter for updates and special offers.</label>
+                </div>
+
+                <button type="submit" class="button submit-button">Submit Feedback</button>
+            </form>
+            <div id="response-message" class="response-message"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Re-wear Revolution Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Basic form validation
+            const email = document.getElementById('email').value;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Invalid email address!');
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            const feedbackType = document.getElementById('feedback-type').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const message = document.getElementById('message').value;
+
+            if (!name || !feedbackType || !rating || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Get the form data
+            const formData = new FormData(this);
+
+            // Simulate sending data (replace with actual server-side submission)
+            // You would use fetch or XMLHttpRequest to send the data to your server
+            // Example using fetch (replace '/submit-feedback' with your server endpoint):
+            /*
+            fetch('/submit-feedback', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Handle success (e.g., show a thank you message)
+                    document.getElementById('response-message').textContent = 'Thank you for your feedback!';
+                    document.getElementById('response-message').classList.add('success');
+                    document.getElementById('feedback-form').reset(); // Clear the form
+                } else {
+                    // Handle error (e.g., show an error message)
+                    document.getElementById('response-message').textContent = 'Sorry, there was an error submitting your feedback. Please try again.';
+                    document.getElementById('response-message').classList.add('error');
+                }
+            })
+            .catch(error => {
+                // Handle network error
+                console.error('Error:', error);
+                document.getElementById('response-message').textContent = 'Sorry, there was a network error. Please check your connection and try again.';
+                document.getElementById('response-message').classList.add('error');
+            });
+            */
+
+            // Simulate a successful submission for this example
+            document.getElementById('response-message').textContent = 'Thank you for your feedback!';
+            document.getElementById('response-message').classList.add('success');
+            document.getElementById('feedback-form').reset();
+
+        });
+    </script>
+</body>
+</html>
