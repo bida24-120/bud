@@ -522,3 +522,208 @@ nav .secondary-nav a.active {
     color: var(--light-background);
     border-color: var(--secondary-color);
 }
+/* form.css (Modified to be more general) */
+.form-container {
+    max-width: 550px; /* Increased max-width to accommodate more fields */
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
+    background-color: var(--light-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to single column */
+    gap: 1.2rem 1.5rem;
+    align-items: start; /* Align items to the start, labels are at the top*/
+}
+
+.form-group {
+    width: 100%;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 2rem);
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    color: var(--text-color-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23777' d='M7 10l5 5 5-5z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em 1em;
+}
+
+.form-group input[type="file"] {
+    padding: 0.5rem 0.8rem; /* Adjust padding for file input */
+    border: none; /* Remove border for file input */
+}
+
+
+.submit-button {
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--light-background);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+    grid-column: 1 / 1; /* Make sure button is in the first column in single column layout */
+}
+
+.submit-button:hover {
+    background-color: #436847;
+}
+
+.form-footer {
+    margin-top: 1.5rem;
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+    grid-column: 1 / 1;
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the active navigation link */
+nav .secondary-nav a.active {
+    background-color: var(--secondary-color);
+    color: var(--light-background);
+    border-color: var(--secondary-color);
+}
+
+/* donate.css (Specific styles for the donate form) */
+.donate-form-container h2{
+    text-align: center;
+}
+.donate-form-container p {
+    color: var(--text-color-secondary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#donate-form {
+    display: flex; /* Use flexbox for the form */
+    flex-direction: column; /* Stack form elements vertically */
+    align-items: center; /* Center form elements horizontally */
+    padding: 0 1rem;
+}
+
+.donate-form-container .form-group {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.donate-form-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.donate-form-container .form-group input,
+.donate-form-container .form-group select,
+.donate-form-container .form-group textarea {
+    width: calc(100% - 2rem);
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    color: var(--text-color-primary);
+}
+
+.donate-form-container .form-group input:focus,
+.donate-form-container .form-group select:focus,
+.donate-form-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.donate-form-container .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.donate-form-container .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23777' d='M7 10l5 5 5-5z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em 1em;
+}
+
+.donate-form-container .form-group input[type="file"] {
+    padding: 0.5rem 0.8rem;
+    border: none;
+}
+
+
+
+.donate-form-container .submit-button {
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--light-background);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.donate-form-container .submit-button:hover {
+    background-color: #436847;
+}
