@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Re-wear Revolution Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Re-wear Revolution Store</h1>
+            <p>"Where treasure gets a second chance"</p>
+        </div>
+        <nav>
+            <div class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="readmore.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="secondary-nav">
+                <a href="donate.html">Donate</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="reviews.html" class="active">Customer Reviews</a>
+                <a href="signin.html">Sign In</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <p class="reviews-intro">See what our happy customers are saying about their Re-wear Revolution experience!</p>
+
+            <div class="review-list">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <span class="reviewer-name">Sarah M.</span>
+                            <span class="review-date">April 15, 2025</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="rating-value">4.5</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Absolutely love the unique finds at Re-wear Revolution! The quality is great, and I always find something special. Plus, it feels good to shop sustainably."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <span class="reviewer-name">John B.</span>
+                            <span class="review-date">April 10, 2025</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="rating-value">5.0</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Excellent service and a fantastic selection of vintage items. The website is easy to use, and my order arrived quickly. Highly recommended!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <span class="reviewer-name">Emily L.</span>
+                            <span class="review-date">April 5, 2025</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="rating-value">4.0</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"A good place to find affordable and stylish second-hand clothes. The sizing was accurate, and the items were as described. Will definitely shop here again."</p>
+                </div>
+
+                </div>
+
+            <p class="no-reviews" style="display: none;">No reviews available yet.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Re-wear Revolution Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // You would typically fetch this data from your server or database
+        const reviewsData = [
+            { name: "Sarah M.", date: "April 15, 2025", rating: 4.5, text: "Absolutely love the unique finds at Re-wear Revolution! The quality is great, and I always find something special. Plus, it feels good to shop sustainably." },
+            { name: "John B.", date: "April 10, 2025", rating: 5.0, text: "Excellent service and a fantastic selection of vintage items. The website is easy to use, and my order arrived quickly. Highly recommended!" },
+            { name: "Emily L.", date: "April 5, 2025", rating: 4.0, text: "A good place to find affordable and stylish second-hand clothes. The sizing was accurate, and the items were as described. Will definitely shop here again." },
+            // Add more review objects here
+        ];
+
+        const reviewList = document.querySelector('.review-list');
+        const noReviewsMessage = document.querySelector('.no-reviews');
+
+        if (reviewsData && reviewsData.length > 0) {
+            reviewsData.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.classList.add('review-card');
+
+                const reviewHeader = document.createElement('div');
+                reviewHeader.classList.add('review-header');
+
+                const reviewerInfo = document.createElement('div');
+                reviewerInfo.classList.add('reviewer-info');
+                reviewerInfo.innerHTML = `<span class="reviewer-name">${review.name}</span><span class="review-date">${review.date}</span>`;
+
+                const ratingDiv = document.createElement('div');
+                ratingDiv.classList.add('rating');
+                const fullStars = Math.floor(review.rating);
+                const hasHalfStar = review.rating % 1 !== 0;
+
+                for (let i = 0; i < 5; i++) {
+                    if (i < fullStars) {
+                        ratingDiv.innerHTML += '<i class="fas fa-star"></i>';
+                    } else if (i === fullStars && hasHalfStar) {
+                        ratingDiv.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        ratingDiv.innerHTML += '<i class="far fa-star"></i>';
+                    }
+                }
+                ratingDiv.innerHTML += `<span class="rating-value">${review.rating.toFixed(1)}</span>`;
+
+                reviewHeader.appendChild(reviewerInfo);
+                reviewHeader.appendChild(ratingDiv);
+
+                const reviewText = document.createElement('p');
+                reviewText.classList.add('review-text');
+                reviewText.textContent = `"${review.text}"`;
+
+                reviewCard.appendChild(reviewHeader);
+                reviewCard.appendChild(reviewText);
+                reviewList.appendChild(reviewCard);
+            });
+        } else {
+            noReviewsMessage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
