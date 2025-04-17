@@ -239,3 +239,84 @@ footer {
     font-size: 0.9rem;
     border-top: 1px solid var(--border-color);
 }
+/* about.css */
+.about-us-content {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--light-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+}
+
+.about-us-content h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.about-us-content .section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fff; /* White sections for readability */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.about-us-content .section h2 {
+    font-size: 2rem;
+    color: var(--text-color-primary);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.about-us-content .section h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.about-us-content p {
+    line-height: 1.8;
+    color: var(--text-color-secondary);
+    margin-bottom: 1rem;
+}
+
+.about-us-content ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 1rem;
+}
+
+.about-us-content li {
+    margin-bottom: 0.5rem;
+}
+
+.owner-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.owner-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+/* Style for the active navigation link */
+nav .main-nav a.active {
+    background-color: var(--secondary-color);
+    color: var(--light-background);
+    border-color: var(--secondary-color);
+}
