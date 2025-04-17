@@ -427,3 +427,98 @@ nav .secondary-nav a.active {
     color: var(--light-background);
     border-color: var(--secondary-color);
 }
+/* form.css */
+.form-container {
+    max-width: 550px;
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
+    background-color: var(--light-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for sign in form */
+    gap: 1.2rem 1.5rem;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select {
+    width: calc(100% - 2rem);
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    color: var(--text-color-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.submit-button {
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--light-background);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.submit-button:hover {
+    background-color: #436847;
+}
+
+.form-footer {
+    margin-top: 1.5rem;
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.form-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the active navigation link */
+nav .secondary-nav a.active {
+    background-color: var(--secondary-color);
+    color: var(--light-background);
+    border-color: var(--secondary-color);
+}
