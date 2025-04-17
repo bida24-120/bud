@@ -845,10 +845,23 @@ nav .secondary-nav a.active {
     color: var(--light-background);
     border-color: var(--secondary-color);
 }
+/* feedback.css (Combined and Fixed Star Rating) */
+.feedback-form-container {
+    max-width: 550px;
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
+    background-color: var(--light-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
 
-/* feedback.css (Specific styles for the feedback form) */
 .feedback-form-container h2 {
     text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
 }
 
 .feedback-form-container p {
@@ -915,14 +928,14 @@ nav .secondary-nav a.active {
     border: none;
 }
 
-/* Specific styles for rating stars */
+/* Specific styles for rating stars (Fixed) */
 .rating-stars {
     display: inline-flex;
-    flex-direction: row-reverse;
+    flex-direction: row-reverse; /* Visual order: 5 to 1 */
 }
 
 .rating-stars input {
-    display: none;
+    display: none; /* Hide radio buttons */
 }
 
 .rating-stars label {
@@ -932,17 +945,22 @@ nav .secondary-nav a.active {
     transition: color 0.3s ease;
 }
 
+/* Hover effect: current star and stars to the right (visually) */
 .rating-stars label:hover,
-.rating-stars label:hover ~ label,
+.rating-stars label:hover ~ label {
+    color: #ffd700;
+}
+
+/* Checked state: current star and stars to the right (visually) */
 .rating-stars input:checked ~ label {
     color: #ffd700;
 }
 
-.rating-stars input:checked + label:hover,
-.rating-stars input:checked ~ label:hover {
+/* Maintain gold color on hover for checked stars */
+.rating-stars input:checked + label:hover, /* For the immediately following label */
+.rating-stars input:checked ~ label:hover { /* For other labels to the right */
     color: #ffd700;
 }
-
 
 #feedback-form .checkbox-group {
     display: flex;
@@ -961,7 +979,6 @@ nav .secondary-nav a.active {
     font-size: 1rem;
     font-weight: normal;
 }
-
 
 #feedback-form .submit-button {
     padding: 1rem 2rem;
