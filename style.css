@@ -313,80 +313,69 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border-color);
 }
-
-/* Style for the active navigation link */
-nav .main-nav a.active {
-    background-color: var(--secondary-color);
-    color: var(--light-background);
-    border-color: var(--secondary-color);
-}
 /* form.css */
 .form-container {
-    max-width: 500px;
+    max-width: 400px;
     margin: 2rem auto;
     padding: 2rem;
     background-color: var(--light-background);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border-color);
+    text-align: center;
 }
 
 .form-container h2 {
     font-size: 2.2rem;
-    color: var(--primary-color);
     margin-bottom: 2rem;
-    text-align: center;
+    color: var(--primary-color);
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: center;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5rem;
     text-align: left;
 }
 
 .form-group label {
-    font-weight: bold;
-    color: var(--text-color-secondary);
+    display: block;
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    color: var(--text-color-secondary);
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .form-group input,
-.form-group select,
-.form-group textarea {
+.form-group select {
+    width: calc(100% - 2rem);
     padding: 0.8rem;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
-    background-color: #fff;
     color: var(--text-color-primary);
 }
 
 .form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form-group select:focus {
     outline: none;
     border-color: var(--secondary-color);
 }
 
-.form-group textarea {
-    resize: vertical;
+.form-group select {
+    appearance: none;  /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23777' d='M7 10l5 5 5-5z'%3E%3C/path%3E%3C/svg%3E"); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em 1em;
 }
 
-.form-group select {
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23777' d='M2 0L0 2h4z'%3E%3C/path%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.7rem center;
-    background-size: 0.6rem;
-}
 
 .submit-button {
     padding: 1rem 2rem;
@@ -397,6 +386,7 @@ form {
     font-size: 1.1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 100%;
     margin-top: 0.5rem;
 }
 
@@ -404,18 +394,10 @@ form {
     background-color: #436847;
 }
 
-.form-message {
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: var(--text-color-secondary);
-}
-
 .form-footer {
-    text-align: center;
     margin-top: 1.5rem;
-    font-size: 1rem;
     color: var(--text-color-secondary);
+    font-size: 0.9rem;
 }
 
 .form-footer a {
