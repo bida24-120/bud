@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Re-wear Revolution Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="donate.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Re-wear Revolution Store</h1>
+            <p>"Where treasure gets a second chance"</p>
+        </div>
+        <nav>
+            <div class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="readmore.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="secondary-nav">
+                <a href="donate.html" class="active">Donate</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="reviews.html">Customer Reviews</a>
+                <a href="signin.html">Sign In</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container donate-form-container">
+            <h2>Donate Your Items</h2>
+            <p>Help us give your pre-loved items a new life! Please fill out the form below to donate your clothing and other items.</p>
+            <form id="donate-form" action="donate" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="tops">Tops</option>
+                        <option value="t-shirts">T-Shirts</option>
+                        <option value="bottoms">Bottoms</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="antique">Antiques</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-name">Item Name:</label>
+                    <input type="text" id="item-name" name="item-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="condition">Condition:</label>
+                    <select id="condition" name="condition" required>
+                        <option value="" disabled selected>Select Condition</option>
+                        <option value="new">New</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="images">Upload Images:</label>
+                    <input type="file" id="images" name="images[]" accept="image/*" multiple required>
+                    <small>You can upload multiple images.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-date">Preferred Pickup Date:</label>
+                    <input type="date" id="pickup-date" name="pickup-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pickup-time">Preferred Pickup Time:</label>
+                    <input type="time" id="pickup-time" name="pickup-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Pickup Address:</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="button submit-button">Submit Donation</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Re-wear Revolution Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('donate-form').addEventListener('submit', function(event) {
+            // Basic form validation
+            const email = document.getElementById('email').value;
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Invalid email address!');
+                event.preventDefault();
+                return;
+            }
+
+             const phone = document.getElementById('phone').value;
+             if (!/^\d{10}$/.test(phone)) { //basic 10 digit phone number check
+                 alert('Invalid phone number! Please enter 10 digits.');
+                 event.preventDefault();
+                 return;
+             }
+            const category = document.getElementById('category').value;
+            const itemName = document.getElementById('item-name').value;
+            const description = document.getElementById('description').value;
+            const condition = document.getElementById('condition').value;
+            const pickupDate = document.getElementById('pickup-date').value;
+            const pickupTime = document.getElementById('pickup-time').value;
+            const images = document.getElementById('images').files;
+
+            if (!category || !itemName || !description || !condition || !pickupDate || !pickupTime || images.length === 0) {
+                alert('Please fill in all required fields and upload at least one image.');
+                event.preventDefault();
+                return;
+            }
+            const selectedDate = new Date(pickupDate);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0); // Compare only the date, not the time
+
+            if (selectedDate < today) {
+                alert('Pickup date cannot be in the past.');
+                event.preventDefault();
+                return;
+            }
+
+
+            // You would add your actual donation submission logic here (e.g., sending data to a server)
+            // For this example, we'll just show a success message:
+            alert('Thank you for your donation! We will contact you to schedule a pickup.');
+            // In a real application, you would redirect the user to a thank you page or the home page.
+            window.location.href = 'index.html';  // Redirect to home page
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
