@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Re-wear Revolution Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Re-wear Revolution Store</h1>
+            <p>"Where treasure gets a second chance"</p>
+        </div>
+        <nav>
+            <div class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="readmore.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="secondary-nav">
+                <a href="donate.html">Donate</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="reviews.html">Customer Reviews</a>
+                <a href="signin.html">Sign In</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="products-main">
+        <section class="category-filter">
+            <h2>Shop by Category</h2>
+            <div class="category-buttons">
+                <button data-category="all" class="category-button active-category">All Products</button>
+                <button data-category="tops" class="category-button">Tops</button>
+                <button data-category="bottoms" class="category-button">Bottoms</button>
+                <button data-category="shoes" class="category-button">Shoes</button>
+                <button data-category="antique" class="category-button">Antiques</button>
+            </div>
+        </section>
+
+        <section class="product-display">
+            <div class="product-grid" id="product-container">
+                </div>
+            <p id="no-products" class="no-products-message" style="display: none;">No products found in this category.</p>
+        </section>
+
+        <section class="call-to-action">
+            <h2>Discover Your Next Treasure</h2>
+            <p>Browse our curated collection of unique, pre-loved items. Find your perfect fit and give a garment a second life!</p>
+            <a href="signup.html" class="button cta-button">Get Started</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Re-wear Revolution Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const productData = [
+            { id: 1, name: "Vintage Floral Blouse", category: "tops", price: 25.99, image: "placeholder.jpg", description: "A beautiful vintage blouse with a floral pattern." },
+            { id: 2, name: "High-Waisted Jeans", category: "bottoms", price: 39.99, image: "placeholder.jpg", description: "Classic high-waisted jeans in excellent condition." },
+            { id: 3, name: "Leather Ankle Boots", category: "shoes", price: 59.99, image: "placeholder.jpg", description: "Stylish leather ankle boots, perfect for any outfit." },
+            { id: 4, name: "Antique Silver Locket", category: "antique", price: 45.00, image: "placeholder.jpg", description: "A delicate antique silver locket." },
+            { id: 5, name: "Striped T-Shirt", category: "tops", price: 19.99, image: "placeholder.jpg", description: "A comfortable striped t-shirt." },
+            { id: 6, name: "Corduroy Skirt", category: "bottoms", price: 34.99, image: "placeholder.jpg", description: "A trendy corduroy skirt." },
+             { id: 7, name: "Suede Loafers", category: "shoes", price: 49.99, image: "placeholder.jpg", description: "Comfortable suede loafers." },
+            { id: 8, name: "Vintage Teapot", category: "antique", price: 29.99, image: "placeholder.jpg", description: "A charming vintage teapot." },
+            { id: 9, name: "Denim Jacket", category: "tops", price: 44.99, image: "placeholder.jpg", description: "A classic denim jacket." },
+            { id: 10, name: "Wide-Leg Trousers", category: "bottoms", price: 44.99, image: "placeholder.jpg", description: "Elegant wide-leg trousers." },
+            { id: 11, name: "Running Shoes", category: "shoes", price: 79.99, image: "placeholder.jpg", description: "High-performance running shoes." },
+            { id: 12, name: "Antique Clock", category: "antique", price: 69.00, image: "placeholder.jpg", description: "A beautiful antique clock." },
+        ];
+
+        const productContainer = document.getElementById('product-container');
+        const categoryButtons = document.querySelectorAll('.category-button');
+        const noProductsMessage = document.getElementById('no-products');
+
+        function displayProducts(category) {
+            productContainer.innerHTML = '';
+            let productsFound = false;
+
+            productData.forEach(product => {
+                if (category === 'all' || product.category === category) {
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <p class="product-price">$${product.price.toFixed(2)}</p>
+                            <button class="button add-to-cart-button" data-product-id="${product.id}">Add to Cart</button>
+                        </div>
+                    `;
+                    productContainer.appendChild(productCard);
+                    productsFound = true;
+                }
+            });
+
+            if (!productsFound) {
+                noProductsMessage.style.display = 'block';
+            } else {
+                noProductsMessage.style.display = 'none';
+            }
+        }
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                document.querySelector('.category-button.active-category').classList.remove('active-category');
+                this.classList.add('active-category');
+                displayProducts(category);
+            });
+        });
+
+        // Initial display of all products
+        displayProducts('all');
+
+        // Event listener for "Add to Cart" buttons (using event delegation)
+        productContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('add-to-cart-button')) {
+                const productId = event.target.dataset.productId;
+                // In a real application, you would add the product to the user's cart
+                // This is a simplified example
+                console.log(`Product ${productId} added to cart`);
+                alert(`Product ${productId} added to cart!`);
+            }
+        });
+    </script>
+</body>
+</html>
