@@ -1687,81 +1687,88 @@ nav .secondary-nav a.active {
 /* products.css */
 
 .products-page {
-    margin-top: 2rem;
-    padding-bottom: 4rem;
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1200px;
 }
 
 .product-category {
     margin-bottom: 4rem;
-    padding: 0 1rem;
+    padding: 1rem;
     text-align: center;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .product-category h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: var(--primary-color);
-    margin-bottom: 2rem;
-    letter-spacing: 0.5px;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.8px;
+    text-transform: capitalize;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
 }
 
 .product-card {
     background-color: var(--light-background);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    text-align: left;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-.product-image {
+.product-image-container {
+    position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+    aspect-ratio: 1.2 / 1; /* Adjust for desired image proportions */
     overflow: hidden;
+    background-color: #f9f9f9; /* Placeholder background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.product-image img {
+.product-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease-out;
 }
 
-.product-image:hover img {
+.product-card:hover .product-image-container img {
     transform: scale(1.05);
 }
 
 .product-info {
-    flex: 1;
+    padding: 1.5rem;
+    text-align: left;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .product-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--text-color-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
 }
 
 .product-price {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--secondary-color);
     font-weight: bold;
     margin-bottom: 1rem;
@@ -1776,27 +1783,51 @@ nav .secondary-nav a.active {
 .product-description {
     font-size: 1rem;
     color: var(--text-color-secondary);
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
     flex-grow: 1;
 }
 
 .product-actions {
+    padding: 1rem 1.5rem;
     display: flex;
-    gap: 0.5rem;
-    margin-top: auto;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
+    border-top: 1px solid var(--border-color);
+    background-color: #f9f9f9;
 }
 
-.add-to-cart-button, .view-details-button, .add-to-wishlist-button{
-    padding: 0.8rem 1.5rem;
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color-secondary);
+}
+
+.quantity-control label {
+    font-weight: bold;
+}
+
+.quantity-control input[type="number"] {
+    width: 50px;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.add-to-cart-button, .view-details-button, .add-to-wishlist-button {
+    padding: 0.8rem 1.2rem;
     background-color: var(--primary-color);
     color: var(--light-background);
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    align-self: flex-start;
+    transition: background-color 0.3s ease-in-out;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1804,13 +1835,12 @@ nav .secondary-nav a.active {
 
 .add-to-cart-button:hover, .view-details-button:hover, .add-to-wishlist-button:hover {
     background-color: #436847;
-    transform: translateY(-2px);
 }
 
 .no-products-message {
     color: var(--text-color-secondary);
     text-align: center;
-    margin-top: 2rem;
-    font-size: 1.2rem;
+    padding: 2rem;
+    font-size: 1.1rem;
     font-style: italic;
 }
