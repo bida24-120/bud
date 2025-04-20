@@ -1684,65 +1684,18 @@ nav .secondary-nav a.active {
     margin-top: 2rem;
     border: 2px solid var(--border-color);
 }
-/* products.css */
-
-.product-categories-page {
-    padding: 2rem;
-    text-align: center;
-}
-
-.product-categories h2 {
-    font-size: 2.5rem;
-    color: var(--primary-color); /* Assuming this variable is in style.css */
-    margin-bottom: 2rem;
-}
-
-.category-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 1rem;
-}
-
-.category-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f8f8f8; /* Light background */
-    padding: 1.2rem;
-    margin: 0.5rem;
-    text-decoration: none;
-    color: #333;
-    border-radius: 8px;
-    width: 160px; /* Adjust width as needed */
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-    border: 1px solid #ddd;
-}
-
-.category-button img {
-    width: 120px; /* Adjust image size */
-    height: 120px; /* Adjust image size */
-    object-fit: cover;
-    border-radius: 5px; /* Slightly rounded images */
-    margin-bottom: 0.75rem;
-}
-
-.category-button:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-/* category_styles.css */
-
 :root {
-    --primary-color: #5cb85c; /* Example primary color */
-    --secondary-color: #f0ad4e; /* Example secondary color */
+    --primary-color: #5cb85c;
+    --primary-color-dark: #436847;
+    --secondary-color: #f0ad4e;
+    --secondary-color-dark: #a77800;
     --light-background: #f8f8f8;
     --text-color-primary: #333;
     --text-color-secondary: #777;
     --border-color: #ddd;
+    --box-shadow-light: 0 2px 5px rgba(0, 0, 0, 0.05);
+    --box-shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .category-page {
@@ -1754,10 +1707,10 @@ nav .secondary-nav a.active {
 .category-banner {
     text-align: center;
     margin-bottom: 3rem;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     background-color: var(--light-background);
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow-light);
 }
 
 .category-banner h2 {
@@ -1775,15 +1728,14 @@ nav .secondary-nav a.active {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
-    margin-top: 2rem;
 }
 
 .product-card {
     background-color: var(--light-background);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--box-shadow-medium);
     overflow: hidden;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -1791,18 +1743,17 @@ nav .secondary-nav a.active {
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .product-image-container {
-    position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
-    overflow: hidden;
     background-color: #f9f9f9;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .product-image-container img {
@@ -1818,10 +1769,9 @@ nav .secondary-nav a.active {
 
 .product-info {
     padding: 1.5rem;
-    text-align: left;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .product-info h3 {
@@ -1845,29 +1795,18 @@ nav .secondary-nav a.active {
     gap: 0.75rem;
 }
 
-.add-to-cart-button, .view-details-button {
+.add-to-cart-button,
+.view-details-button {
     padding: 0.8rem 1.2rem;
-    background-color: var(--primary-color);
-    color: var(--light-background);
+    font-size: 1rem;
+    font-weight: 600;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    width: 100%;
     justify-content: center;
-}
-
-.add-to-cart-button:hover {
-    background-color: #436847;
-}
-
-.view-details-button {
-    background-color: var(--secondary-color);
-}
+    gap: 0
 
 .view-details-button:hover {
     background-color: #a77800;
