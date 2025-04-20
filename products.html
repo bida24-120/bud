@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - Re-wear Revolution</title>
+    <title>Products - Re-wear Revolution Store</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="product_details.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="products.css">
 </head>
 <body>
     <header>
@@ -17,7 +16,7 @@
         <nav>
             <div class="main-nav">
                 <a href="index.html">Home</a>
-                <a href="products.html">Products</a>
+                <a href="products.html" class="active">Products</a>
                 <a href="cart.html">Cart</a>
                 <a href="about.html">About Us</a>
                 <a href="contact.html">Contact</a>
@@ -32,188 +31,32 @@
         </nav>
     </header>
 
-    <main class="product-details-page">
-        <div class="product-container">
-            <div class="product-gallery">
-                <div class="main-image">
-                    <img id="mainProductImage" src="placeholder_product_main.jpg" alt="Product Image">
-                </div>
-                <div class="thumbnails">
-                    <img src="placeholder_product_thumb1.jpg" alt="Thumbnail 1" onclick="changeMainImage('vintage.01.jpg')">
-                    <img src="placeholder_product_thumb2.jpg" alt="Thumbnail 2" onclick="changeMainImage('vintage.02.jpg')">
-                    <img src="placeholder_product_thumb3.jpg" alt="Thumbnail 3" onclick="changeMainImage('vintage.03.jpg')">
-                    </div>
+    <main class="product-categories-page">
+        <section class="product-categories">
+            <h2>Explore Our Product Range</h2>
+            <div class="category-buttons">
+                <a href="products.html?category=shoes" class="category-button">
+                    <img src="placeholder_shoes.jpg" alt="Shoes">
+                    Shoes
+                </a>
+                <a href="products.html?category=tops" class="category-button">
+                    <img src="placeholder_tops.jpg" alt="Tops">
+                    Tops
+                </a>
+                <a href="products.html?category=bottoms" class="category-button">
+                    <img src="placeholder_bottoms.jpg" alt="Bottoms">
+                    Bottoms
+                </a>
+                <a href="products.html?category=antique" class="category-button">
+                    <img src="placeholder_antique.jpg" alt="Antique">
+                    Antique
+                </a>
             </div>
-
-            <div class="product-info">
-                <h1 id="productTitle">Product Name</h1>
-                <p class="product-category"><a href="#">Category Name</a></p>
-                <div class="product-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                    <span id="productRating">(4.5 / 5)</span> | <a href="#reviews">Read Reviews (15)</a>
-                </div>
-
-                <div class="product-price">
-                    <span class="price" id="productPrice">$XX.XX</span>
-                    <span class="discount" id="productDiscountPrice">$YY.YY</span>
-                </div>
-
-                <div class="product-availability">
-                    Availability: <span id="productStock">In Stock (10 units)</span>
-                </div>
-
-                <div class="product-options">
-                    <div class="option">
-                        <label for="size">Size:</label>
-                        <select id="size" name="size">
-                            <option value="">Select Size</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                        </select>
-                    </div>
-                    <div class="option">
-                        <label for="color">Color:</label>
-                        <div class="color-swatches">
-                            <span class="swatch" style="background-color: #ff0000;" data-color="Red" onclick="selectColor(this)"></span>
-                            <span class="swatch active" style="background-color: #000000;" data-color="Black" onclick="selectColor(this)"></span>
-                            <span class="swatch" style="background-color: #0000ff;" data-color="Blue" onclick="selectColor(this)"></span>
-                            </div>
-                        <span id="selectedColor"></span>
-                    </div>
-                    <div class="option quantity-option">
-                        <label for="quantity">Quantity:</label>
-                        <div class="quantity-control">
-                            <button class="quantity-button minus">-</button>
-                            <input type="number" id="quantity" name="quantity" value="1" min="1">
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-actions">
-                    <button class="add-to-cart-button">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                    <button class="add-to-wishlist-button">
-                        <i class="fas fa-heart"></i> Add to Wishlist
-                    </button>
-                </div>
-
-                <div class="product-details">
-                    <h2>Product Description</h2>
-                    <p id="productDescription">
-                        This is a detailed description of the product. It can include information about the materials, care instructions, origin, and any other relevant details that would help a customer make an informed purchase.
-                    </p>
-                    <h3>Features</h3>
-                    <ul id="productFeatures">
-                        <li>Feature 1</li>
-                        <li>Feature 2</li>
-                        <li>Feature 3</li>
-                        </ul>
-                </div>
-            </div>
-        </div>
-
-        <section id="reviews" class="product-reviews">
-            <h2>Customer Reviews</h2>
-            <div class="review">
-                <div class="reviewer-info">
-                    <span class="reviewer-name">John Doe</span>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <span class="review-date">April 15, 2025</span>
-                </div>
-                <p class="review-text">
-                    This is a sample customer review. It provides feedback on the product's quality, usability, and overall satisfaction.
-                </p>
-            </div>
-            <button class="view-all-reviews-button">View All Reviews</button>
-        </section>
-
-        <section class="related-products">
-            <h2>Related Products</h2>
-            <div class="related-products-grid">
-                <div class="related-product-card">
-                    <img src="placeholder_related_product1.jpg" alt="Related Product 1">
-                    <h3>Related Product 1</h3>
-                    <p class="price">$XX.XX</p>
-                    <a href="#">View Details</a>
-                </div>
-                <div class="related-product-card">
-                    <img src="placeholder_related_product2.jpg" alt="Related Product 2">
-                    <h3>Related Product 2</h3>
-                    <p class="price">$YY.YY</p>
-                    <a href="#">View Details</a>
-                </div>
-                </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Re-wear Revolution Store. All rights reserved.</p>
     </footer>
-
-    <script>
-        function changeMainImage(imageSrc) {
-            document.getElementById('mainProductImage').src = imageSrc;
-        }
-
-        function selectColor(swatch) {
-            document.querySelectorAll('.color-swatches .swatch').forEach(s => s.classList.remove('active'));
-            swatch.classList.add('active');
-            document.getElementById('selectedColor').textContent = `Selected Color: ${swatch.dataset.color}`;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const quantityInput = document.getElementById('quantity');
-            const plusButton = document.querySelector('.quantity-button.plus');
-            const minusButton = document.querySelector('.quantity-button.minus');
-
-            if (plusButton) {
-                plusButton.addEventListener('click', function() {
-                    quantityInput.value = parseInt(quantityInput.value) + 1;
-                });
-            }
-
-            if (minusButton) {
-                minusButton.addEventListener('click', function() {
-                    if (parseInt(quantityInput.value) > 1) {
-                        quantityInput.value = parseInt(quantityInput.value) - 1;
-                    }
-                });
-            }
-
-            const addToCartButton = document.querySelector('.product-actions .add-to-cart-button');
-            if (addToCartButton) {
-                addToCartButton.addEventListener('click', function() {
-                    const productId = /* Dynamically get product ID */;
-                    const quantity = document.getElementById('quantity').value;
-                    console.log(`Added product ${productId}, Quantity: ${quantity} to cart.`);
-                    alert(`Added to cart! (Product ID: ${productId}, Qty: ${quantity})`);
-                    // In a real application, you would send this data to your server.
-                });
-            }
-
-            const addToWishlistButton = document.querySelector('.product-actions .add-to-wishlist-button');
-            if (addToWishlistButton) {
-                addToWishlistButton.addEventListener('click', function() {
-                    const productId = /* Dynamically get product ID */;
-                    console.log(`Added product ${productId} to wishlist.`);
-                    alert(`Added to wishlist! (Product ID: ${productId})`);
-                    // In a real application, you would send this data to your server.
-                });
-            }
-        });
-    </script>
 </body>
 </html>
